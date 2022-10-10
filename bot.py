@@ -12,7 +12,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-import random,time,os,re
+import random,time,os,re,config
 from datetime import date, datetime
 from apscheduler.schedulers.background import BlockingScheduler
 import tzlocal
@@ -37,7 +37,7 @@ def date():
     return date
 
 def login(data):
-    opts.add_argument(r"--user-data-dir=C:\Users\rahul\AppData\Local\Google\Chrome\User Data\Default")
+    opts.add_argument(f"--user-data-dir={config.path}")
     opts.add_argument(f'--profile-directory=Profile 1')
     browser = webdriver.Chrome(ChromeDriverManager().install(),options=opts, desired_capabilities=dc)
     browser.get("https://web.whatsapp.com/")
